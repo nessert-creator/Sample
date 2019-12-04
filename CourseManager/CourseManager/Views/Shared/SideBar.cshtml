@@ -1,0 +1,28 @@
+﻿@using CourseManager.Models
+
+@{
+
+    var sidebars = (List<SideBars>)ViewBag.SideBars;
+}
+
+
+<style>
+    .sidebar {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sidebar li a {
+        color: #333;
+    }
+</style>
+
+<ul class="nav navbar-nav sidebar">
+    @foreach (var sidebar in sidebars)
+    {
+        <li>@Html.ActionLink(sidebar.Name, sidebar.Action, sidebar.Controller, new { area = "" }, new { @class = "navbar-brand" })</li>
+
+    }
+</ul>
